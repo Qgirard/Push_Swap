@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 15:12:29 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/01 18:01:39 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/14 18:22:49 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ int		convertinstrwoptions(char **str, t_check **stock, va_list vl,
 		if (!*str)
 			return (0);
 	}
-	if ((*stock)->size == NULL && (*stock)->type != 'U' &&
-	(*stock)->type != 'f' && (*stock)->type != 'O' && (*stock)->type != 'D')
+	if ((*stock)->size == NULL && (*stock)->type != 'U'
+	&& (*stock)->type != 'f' && (*stock)->type != 'O' && (*stock)->type != 'D')
 		return (convertinstrwint(str, stock, vl, current));
-	else if ((*stock)->size != NULL || (*stock)->type == 'U' ||
-	(*stock)->type == 'D' || (*stock)->type == 'O')
+	else if ((*stock)->size != NULL || (*stock)->type == 'U'
+	|| (*stock)->type == 'D' || (*stock)->type == 'O')
 		return (convertinstrwsize(str, stock, vl, current));
 	else if ((*stock)->type == 'f')
 		return (convertfloats(str, stock, vl));
@@ -84,14 +84,14 @@ int		convertinstr(char **str, t_check **stock, va_list vl, t_excep **current)
 			return (0);
 		(*stock)->prec = -1;
 	}
-	else if ((*stock)->plus == '+' && ((*stock)->type == 'd' ||
-	(*stock)->type == 'D'))
+	else if ((*stock)->plus == '+' && ((*stock)->type == 'd'
+	|| (*stock)->type == 'D'))
 	{
 		if (!(*str = ft_strjoinf(*str, "+", 1)))
 			return (0);
 	}
-	else if ((*stock)->space == ' ' && ((*stock)->type == 'd' ||
-	(*stock)->type == 'D'))
+	else if ((*stock)->space == ' ' && ((*stock)->type == 'd'
+	|| (*stock)->type == 'D'))
 		if (!(*str = ft_strjoinf(*str, " ", 1)))
 			return (0);
 	return (convertinstrwoptions(str, stock, vl, current));

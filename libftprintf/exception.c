@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 13:56:26 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/03 16:29:55 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/14 18:32:26 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int		exception(char **str, t_check **stock, va_list vl, t_excep **current)
 		else
 			*str = ft_strjoinf(*str, ft_tochartostr((*stock)->charzero), 3);
 	}
-	if ((*stock)->prec != -1 && (*stock)->prec < (*stock)->width &&
-	(*stock)->zero == '0' && (*stock)->type != 's')
+	if ((*stock)->prec != -1 && (*stock)->prec < (*stock)->width
+	&& (*stock)->zero == '0' && (*stock)->type != 's')
 		(*stock)->zero = 0;
 	return (convert0precision(str, stock, vl));
 }

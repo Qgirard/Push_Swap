@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   freecauses.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/04 15:50:19 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/14 19:21:11 by qgirard          ###   ########.fr       */
+/*   Created: 2019/02/14 18:42:39 by qgirard           #+#    #+#             */
+/*   Updated: 2019/02/14 19:01:43 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "checker.h"
 
-# include "../libftprintf/ft_printf.h"
-
-typedef struct	s_pilea
+int		freeanderror(t_pilea **pile)
 {
-	int				i;
-	struct s_pilea	*next;
-}				t_pilea;
+	t_pilea *tmp;
 
-typedef struct	s_pileb
+	while ((*pile))
+	{
+		tmp = (*pile);
+		(*pile)->i = 0;
+		(*pile) = (*pile)->next;
+		free(tmp);
+	}
+	write(2, "Error\n", 6);
+	return (1);
+}
+
+int		freepilea(t_pilea **pile)
 {
-	int				x;
-	struct s_pileb	*next;
-	struct s_pileb	*prev;
-}				t_pileb;
+	t_pilea	*tmp;
 
-int				freeanderror(t_pilea **pile);
-int				createpilea(t_pilea **pile, char *str);
-int				freepilea(t_pilea **pile);
-int				checker(t_pilea **pile);
-
-#endif
+	while ((*pile))
+	{
+		tmp = (*pile);
+		(*pile)->i = 0;
+		(*pile) = (*pile)->next;
+		free(tmp);
+	}
+	return (1);
+}

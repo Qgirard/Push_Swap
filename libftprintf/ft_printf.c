@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 13:11:40 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/03 16:20:45 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/14 18:21:48 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int		checkcolours(const char **format, char **str, t_check **stock)
 	ft_strlen(*format) - ft_strlen(ft_strchr(*format, '{'))), 3)))
 		return (0);
 	*format = ft_strchr(*format, '{');
-	if (!ft_strncmp(*format, "{red}", 5) || !ft_strncmp(*format, "{eoc}", 5) ||
-	!ft_strncmp(*format, "{green}", 7) || !ft_strncmp(*format, "{yellow}", 8) ||
-	!ft_strncmp(*format, "{blue}", 6) || !ft_strncmp(*format, "{rose}", 6) ||
-	!ft_strncmp(*format, "{cyan}", 6))
+	if (!ft_strncmp(*format, "{red}", 5) || !ft_strncmp(*format, "{eoc}", 5)
+	|| !ft_strncmp(*format, "{green}", 7) || !ft_strncmp(*format, "{yellow}", 8)
+	|| !ft_strncmp(*format, "{blue}", 6) || !ft_strncmp(*format, "{rose}", 6)
+	|| !ft_strncmp(*format, "{cyan}", 6))
 	{
 		if (!applycolours(format, str, stock))
 			return (0);

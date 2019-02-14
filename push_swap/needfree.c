@@ -1,33 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   needfree.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/14 15:23:40 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/14 17:06:13 by qgirard          ###   ########.fr       */
+/*   Created: 2019/02/14 18:45:50 by qgirard           #+#    #+#             */
+/*   Updated: 2019/02/14 18:46:05 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		push_swap(t_lcheck **stock, t_temp **tampon)
+int		freewhenerror(t_lcheck **stock)
 {
 	t_lcheck	*tmp;
 
-	if ((*stock)->next && (*stock)->i > (*stock)->next->i)
-	{
-		ft_swap(&((*stock)->i), &((*stock)->next->i));
-		write(1, "sa\n", 3);
-	}
-	while ((*stock)->next && (*stock)->i < (*stock)->next->i)
+	while ((*stock))
 	{
 		tmp = (*stock);
-		scdelist(tampon, stock);
+		(*stock)->i = 0;
 		(*stock) = (*stock)->next;
 		free(tmp);
-		write(1, "pb\n", 3);
+	}
+	write(2, "Error\n", 6);
+	return (1);
+}
+
+int		freend(t_lcheck **stock, t_temp **tampon)
+{
+	t_lcheck	*tmp;
+	t_temp		*ptr;
+
+	while ((*stock))
+	{
+		tmp = (*stock);
+		(*stock)->i = 0;
+		(*stock) = (*stock)->next;
+		free(tmp);
+	}
+	while ((*tampon))
+	{
+		ptr = (*tampon);
+		(*tampon)->x = 0;
+		(*tampon) = (*tampon)->next;
+		free(ptr);
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 16:02:21 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/01 18:16:19 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/14 18:30:03 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,17 @@ int		convertprecisionforhexa(char **str, t_check **stock)
 	char	*tmp;
 	char	*ptr;
 
-	(*stock)->sizetype = ((*stock)->prec > 0 && (*stock)->diez == '#') ?
-	ft_strlen(*str) - (*stock)->lenstr - 2 : ft_strlen(*str) - (*stock)->lenstr;
-	if ((*stock)->prec && (*stock)->prec != -1 &&
-	(*stock)->prec > (*stock)->sizetype)
+	(*stock)->sizetype = ((*stock)->prec > 0 && (*stock)->diez == '#')
+	? ft_strlen(*str) - (*stock)->lenstr - 2
+	: ft_strlen(*str) - (*stock)->lenstr;
+	if ((*stock)->prec && (*stock)->prec != -1
+	&& (*stock)->prec > (*stock)->sizetype)
 	{
 		if (!(tmp = ft_strsub(*str, (*stock)->lenstr, ft_strlen(*str))))
 			return (0);
-		if (!(ptr = (((*stock)->diez == '#' || (*stock)->type == 'p') &&
-		ft_strcmp(tmp, "0")) ? ft_strsub(*str, 0, (*stock)->lenstr + 2) :
-		ft_strsub(*str, 0, (*stock)->lenstr)))
+		if (!(ptr = (((*stock)->diez == '#' || (*stock)->type == 'p')
+		&& ft_strcmp(tmp, "0")) ? ft_strsub(*str, 0, (*stock)->lenstr + 2)
+		: ft_strsub(*str, 0, (*stock)->lenstr)))
 			return (convertprecisionerr(&tmp, &ptr, 1));
 		ft_strdel(&tmp);
 		if (!(tmp = ft_strsub(*str, ft_strlen(ptr), ft_strlen(*str))))
@@ -68,10 +69,10 @@ int		convertprecisionforhexa(char **str, t_check **stock)
 
 int		convert0precisionex(char **str, t_check **stock, char *tmp, char *ptr)
 {
-	if (((*stock)->type == 'x' || (*stock)->type == 'X' ||
-	(*stock)->type == 'o' || (*stock)->type == 'O' || (*stock)->type == 'u' ||
-	(*stock)->type == 'U' || (*stock)->type == 'd' || (*stock)->type == 'D') &&
-	!ft_strcmp(tmp, "0") && (*stock)->prec > -1)
+	if (((*stock)->type == 'x' || (*stock)->type == 'X'
+	|| (*stock)->type == 'o' || (*stock)->type == 'O' || (*stock)->type == 'u'
+	|| (*stock)->type == 'U' || (*stock)->type == 'd' || (*stock)->type == 'D')
+	&& !ft_strcmp(tmp, "0") && (*stock)->prec > -1)
 	{
 		ft_strdel(str);
 		*str = ft_strdup(ptr);
@@ -82,8 +83,8 @@ int		convert0precisionex(char **str, t_check **stock, char *tmp, char *ptr)
 		*str = ft_strdup(ptr);
 		*str = ft_strjoinf(*str, "0x", 1);
 	}
-	if (((*stock)->type == 'o' || (*stock)->type == 'O') &&
-	!ft_strcmp(tmp, "00"))
+	if (((*stock)->type == 'o' || (*stock)->type == 'O')
+	&& !ft_strcmp(tmp, "00"))
 	{
 		ft_strdel(str);
 		*str = ft_strdup(ptr);
@@ -99,8 +100,8 @@ int		convert0precision(char **str, t_check **stock, va_list vl)
 	char	*tmp;
 	char	*ptr;
 
-	if (((*stock)->type != 's') && (((*stock)->prec == 0 ||
-	(*stock)->prec == -1) || (((*stock)->type == 'o' ||
+	if (((*stock)->type != 's') && (((*stock)->prec == 0
+	|| (*stock)->prec == -1) || (((*stock)->type == 'o' ||
 	(*stock)->type == 'O') && ((*stock)->prec <= 1) && (*stock)->diez == '#')))
 	{
 		if (!(ptr = ft_strsub(*str, 0, (*stock)->lenstr)))
@@ -117,8 +118,8 @@ int		convert0precision(char **str, t_check **stock, va_list vl)
 		convertwidth(str, stock);
 	}
 	else
-		return (((*stock)->type == 'x' || (*stock)->type == 'X' ||
-		(*stock)->type == 'p') ? convertprecisionforhexa(str, stock) :
-		convertprecision(str, stock, vl));
+		return (((*stock)->type == 'x' || (*stock)->type == 'X'
+		|| (*stock)->type == 'p') ? convertprecisionforhexa(str, stock)
+		: convertprecision(str, stock, vl));
 			return (1);
 }

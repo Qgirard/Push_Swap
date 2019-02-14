@@ -6,14 +6,14 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:22:16 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/14 16:27:54 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/14 18:35:33 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "../libftprintf/ft_printf.h"
+# include "../libftprintf/ft_printf.h"
 
 typedef struct	s_lcheck
 {

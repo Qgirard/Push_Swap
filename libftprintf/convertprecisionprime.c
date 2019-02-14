@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 17:38:00 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/01 18:17:28 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/14 18:30:45 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ int		convertprecisionwos(char **str, t_check **stock)
 
 int		convertprecision(char **str, t_check **stock, va_list vl)
 {
-	(*stock)->sizetype = ((*stock)->plus == '+' || (*stock)->space == ' ' ||
-	(*stock)->sign == '-') ? ft_strlen(*str) - (*stock)->lenstr - 1 :
-	ft_strlen(*str) - (*stock)->lenstr;
-	if ((*stock)->prec && (*stock)->prec != -1 &&
-	(*stock)->prec > (*stock)->sizetype && (*stock)->type != 's')
+	(*stock)->sizetype = ((*stock)->plus == '+' || (*stock)->space == ' '
+	|| (*stock)->sign == '-') ? ft_strlen(*str) - (*stock)->lenstr - 1
+	: ft_strlen(*str) - (*stock)->lenstr;
+	if ((*stock)->prec && (*stock)->prec != -1
+	&& (*stock)->prec > (*stock)->sizetype && (*stock)->type != 's')
 	{
 		if (!convertprecisionwos(str, stock))
 			return (0);
 	}
-	else if ((*stock)->prec && (*stock)->prec > (*stock)->sizetype &&
-	(*stock)->type == 's')
+	else if ((*stock)->prec && (*stock)->prec > (*stock)->sizetype
+	&& (*stock)->type == 's')
 	{
 		if (!(*str = ft_strjoinf(*str, ft_strsub(va_arg(vl, char *), 0,
 		(*stock)->prec), 3)))

@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   makepiles.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/04 15:50:19 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/14 19:21:11 by qgirard          ###   ########.fr       */
+/*   Created: 2019/02/14 17:44:13 by qgirard           #+#    #+#             */
+/*   Updated: 2019/02/14 18:55:35 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "checker.h"
 
-# include "../libftprintf/ft_printf.h"
-
-typedef struct	s_pilea
+int		createpilea(t_pilea **pile, char *str)
 {
-	int				i;
-	struct s_pilea	*next;
-}				t_pilea;
+	t_pilea	*tmp;
+	t_pilea	*new;
 
-typedef struct	s_pileb
-{
-	int				x;
-	struct s_pileb	*next;
-	struct s_pileb	*prev;
-}				t_pileb;
-
-int				freeanderror(t_pilea **pile);
-int				createpilea(t_pilea **pile, char *str);
-int				freepilea(t_pilea **pile);
-int				checker(t_pilea **pile);
-
-#endif
+	tmp = *pile;
+	if ((*pile) != NULL)
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+	}
+	if (!(new = (t_pilea *)malloc(sizeof(t_pilea))))
+		return (0);
+	new->i = ft_atoi(str);
+	new->next = NULL;
+	if (!(*pile))
+		*pile = new;
+	else
+		tmp->next = new;
+	return (1);
+}

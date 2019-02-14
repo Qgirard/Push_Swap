@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:47:23 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/01 17:15:44 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/14 18:32:16 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int		convertwidtherror(char **str, t_check **stock, char **tmp, char **ptr)
 {
 	if (!(*stock)->hexaex)
 	{
-		if (!(*str = ((*stock)->type == 'x') ? ft_strjoinf(*str, "0x", 1) :
-		ft_strjoinf(*str, "0X", 1)))
+		if (!(*str = ((*stock)->type == 'x') ? ft_strjoinf(*str, "0x", 1)
+		: ft_strjoinf(*str, "0X", 1)))
 			return (convertprecisionerr(tmp, ptr, 3));
 	}
 	else
@@ -65,8 +65,8 @@ int		convertwidthforall(char **str, t_check **stock)
 	int		i;
 
 	i = 0;
-	if ((*stock)->diez == '#' && (*stock)->zero == '0' &&
-	((*stock)->type == 'x' || (*stock)->type == 'X'))
+	if ((*stock)->diez == '#' && (*stock)->zero == '0'
+	&& ((*stock)->type == 'x' || (*stock)->type == 'X'))
 		return (convertwidthoptions(str, stock));
 	if (!(ptr = ft_reallocstr(NULL, (*stock)->width - (*stock)->sizetype)))
 		return (0);
@@ -86,19 +86,19 @@ int		convertwidthforall(char **str, t_check **stock)
 
 void	initialization(char **str, t_check **stock)
 {
-	if (((*stock)->plus == '+' || (*stock)->sign == '-' ||
-	(*stock)->space == ' ') && ((*stock)->type == 'd' ||
-	(*stock)->type == 'D') && ((*stock)->zero == '0'))
+	if (((*stock)->plus == '+' || (*stock)->sign == '-'
+	|| (*stock)->space == ' ') && ((*stock)->type == 'd'
+	|| (*stock)->type == 'D') && ((*stock)->zero == '0'))
 		(*stock)->width--;
-	(*stock)->sizetype = (((*stock)->plus == '+' || (*stock)->sign == '-' ||
-	(*stock)->space == ' ') && ((*stock)->type == 'd' ||
-	(*stock)->type == 'D') && ((*stock)->zero == '0')) ?
-	ft_strlen(*str) - (*stock)->lenstr - 1 :
-	ft_strlen(*str) - (*stock)->lenstr;
+	(*stock)->sizetype = (((*stock)->plus == '+' || (*stock)->sign == '-'
+	|| (*stock)->space == ' ') && ((*stock)->type == 'd'
+	|| (*stock)->type == 'D') && ((*stock)->zero == '0'))
+	? ft_strlen(*str) - (*stock)->lenstr - 1
+	: ft_strlen(*str) - (*stock)->lenstr;
 	if ((*stock)->checkex == 1)
 		(*stock)->width++;
-	if ((*stock)->sizetype >= (*stock)->width ||
-	((*stock)->prec > (*stock)->width && (*stock)->type != 's'))
+	if ((*stock)->sizetype >= (*stock)->width
+	|| ((*stock)->prec > (*stock)->width && (*stock)->type != 's'))
 		(*stock)->width = 0;
 }
 
@@ -117,8 +117,8 @@ int		convertwidth(char **str, t_check **stock)
 			(*stock)->width - (*stock)->sizetype)))
 				return (0);
 			while (i < (*stock)->width - (*stock)->sizetype)
-				tmp[i++] = ((*stock)->zero == '0' && ((*stock)->type != 's' &&
-				(*stock)->type != 'c')) ? '0' : ' ';
+				tmp[i++] = ((*stock)->zero == '0' && ((*stock)->type != 's'
+				&& (*stock)->type != 'c')) ? '0' : ' ';
 			if (!(*str = ft_strjoinf(*str, tmp, 3)))
 				return (convertprecisionerr(&tmp, NULL, 1));
 		}
