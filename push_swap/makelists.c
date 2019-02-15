@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:10:35 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/14 17:10:38 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/15 15:57:44 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,14 @@ int		putlists(t_lcheck **stock, char *str)
 	new->i = ft_atoi(str);
 	new->next = NULL;
 	if (!(*stock))
+	{
+		new->prev = NULL;
 		*stock = new;
-	else
-		tmp->next = new;
-	return (1);
-}
-
-int		scdelist(t_temp **tampon, t_lcheck **stock)
-{
-	t_temp	*tmp;
-	t_temp	*new;
-
-	tmp = *tampon;
-	if (!(new = (t_temp *)malloc(sizeof(t_temp))))
-		return (0);
-	new->x = (*stock)->i;
-	new->next = ((*tampon) != NULL) ? (*tampon) : NULL;
-	new->prev = NULL;
-	if (!(*tampon))
-		*tampon = new;
+	}
 	else
 	{
-		(*tampon)->prev = new;
-		(*tampon) = (*tampon)->prev;
+		new->prev = tmp;
+		tmp->next = new;
 	}
 	return (1);
 }

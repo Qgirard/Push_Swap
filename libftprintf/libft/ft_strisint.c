@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strisint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/14 15:23:40 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/15 18:24:28 by qgirard          ###   ########.fr       */
+/*   Created: 2019/02/15 18:44:13 by qgirard           #+#    #+#             */
+/*   Updated: 2019/02/15 18:48:32 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		push_swap(t_lcheck **stock, t_lcheck **tampon)
+int		ft_strisint(char *str)
 {
-	t_lcheck	*tmp;
+	int		i;
 
-	if ((*stock)->next && (*stock)->i > (*stock)->next->i)
+	i = 0;
+	if (str[i] == '-')
+		i++;
+	if ((ft_strlen(str) >= 10 && str[0] != '-') || (ft_strlen(str) >= 11
+	&& str[0] == '-'))
+		return (0);
+	while (str[i])
 	{
-		ft_swap(&((*stock)->i), &((*stock)->next->i));
-		write(1, "sa\n", 3);
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
 	}
-	tmp = (*tampon);
-	write(1, "pb\n", 3);
-	write(1, "pb\n", 3);
-	write(1, "pb\n", 3);
-	write(1, "sa\n", 3);
-	write(1, "pa\n", 3);
-	write(1, "pa\n", 3);
-	write(1, "pa\n", 3);
 	return (1);
 }

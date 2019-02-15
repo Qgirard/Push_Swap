@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 18:45:50 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/14 18:46:05 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/15 15:54:58 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int		freewhenerror(t_lcheck **stock)
 	return (1);
 }
 
-int		freend(t_lcheck **stock, t_temp **tampon)
+int		freend(t_lcheck **stock, t_lcheck **tampon)
 {
 	t_lcheck	*tmp;
-	t_temp		*ptr;
+	t_lcheck		*ptr;
 
 	while ((*stock))
 	{
@@ -42,7 +42,7 @@ int		freend(t_lcheck **stock, t_temp **tampon)
 	while ((*tampon))
 	{
 		ptr = (*tampon);
-		(*tampon)->x = 0;
+		(*tampon)->i = 0;
 		(*tampon) = (*tampon)->next;
 		free(ptr);
 	}

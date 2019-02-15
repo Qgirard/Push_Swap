@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:21:51 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/14 17:03:11 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/15 19:17:53 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ int		checkpile(char *str, t_lcheck **stock)
 		tmp = (*stock);
 		while (tmp)
 		{
-			if (ft_atoi(str) == tmp->i)
+			if (ft_atol(str) == tmp->i)
 				return (0);
 			tmp = tmp->next;
 		}
 	}
-	if (ft_strisnumber(str))
+	if (ft_strisint(str) || (ft_atol(str) >= -2147483648
+	|| ft_atol(str) <= 2147483647))
 	{
 		if (!putlists(stock, str))
 			return (0);
@@ -40,7 +41,7 @@ int		main(int argc, char **argv)
 {
 	int			i;
 	t_lcheck	*stock;
-	t_temp		*tampon;
+	t_lcheck	*tampon;
 
 	i = 1;
 	stock = NULL;

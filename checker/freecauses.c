@@ -6,15 +6,15 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 18:42:39 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/14 19:01:43 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/15 15:51:24 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int		freeanderror(t_pilea **pile)
+int		freeanderror(t_pile **pile, int i)
 {
-	t_pilea *tmp;
+	t_pile *tmp;
 
 	while ((*pile))
 	{
@@ -23,20 +23,21 @@ int		freeanderror(t_pilea **pile)
 		(*pile) = (*pile)->next;
 		free(tmp);
 	}
-	write(2, "Error\n", 6);
-	return (1);
+	if (i == 1)
+		write(2, "Error\n", 6);
+	return (i);
 }
 
-int		freepilea(t_pilea **pile)
+int		freepileb(t_pile **temp)
 {
-	t_pilea	*tmp;
+	t_pile *tmp;
 
-	while ((*pile))
+	while ((*temp))
 	{
-		tmp = (*pile);
-		(*pile)->i = 0;
-		(*pile) = (*pile)->next;
+		tmp = (*temp);
+		(*temp)->i = 0;
+		(*temp) = (*temp)->next;
 		free(tmp);
 	}
-	return (1);
+	return (0);
 }
