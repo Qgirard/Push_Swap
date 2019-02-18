@@ -6,28 +6,65 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 15:23:40 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/15 18:24:28 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/18 19:37:37 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	threenbs(t_lcheck **stock)
+{
+	t_lcheck *tmp;
+
+	tmp = (*stock);
+	while (tmp->next)
+		tmp = tmp->next;
+	if ((*stock)->next)
+	{
+		if ((*stock)->i > (*stock)->next->i && tmp->i > (*stock)->i)
+			ft_swap(&(((*stock)->i)), &((*stock)->next->i));
+		else if ((*stock)->i > (*stock)->next->i && tmp->i < (*stock)->next->i)
+		{
+			ft_swap(&(((*stock)->i)), &((*stock)->next->i));
+			makerra(stock);
+		}
+		else if ((*stock)->i > (*stock)->next->i && tmp->i > (*stock)->next->i)
+			makera(stock);
+		else if ((*stock)->i < (*stock)->next->i && tmp->i < (*stock)->i)
+			makerra(stock);
+		else if ((*stock)->i < (*stock)->next->i && (tmp->i < (*stock)->next->i
+		&& tmp->i > (*stock)->i))
+		{
+			ft_swap(&(((*stock)->i)), &((*stock)->next->i));
+			makera(stock);
+		}
+	}
+}
+
 int		push_swap(t_lcheck **stock, t_lcheck **tampon)
 {
 	t_lcheck	*tmp;
+	t_lcheck	*ptr;
 
-	if ((*stock)->next && (*stock)->i > (*stock)->next->i)
+	tmp = (*stock);
+	ptr = (*stock);
+	while (tmp->next)
+		tmp = tmp->next;
+	while (ptr && ptr->i != tmp->i)
 	{
-		ft_swap(&((*stock)->i), &((*stock)->next->i));
-		write(1, "sa\n", 3);
+		if (ptr->i < tmp->i)
+		{
+			ptr = ptr->next;
+			pushb(stock, tampon);
+		}
+		else if (ptr->i > tmp->i)
+		{
+			ptr = ptr->next;
+			makera(stock);
+		}
 	}
-	tmp = (*tampon);
-	write(1, "pb\n", 3);
-	write(1, "pb\n", 3);
-	write(1, "pb\n", 3);
-	write(1, "sa\n", 3);
-	write(1, "pa\n", 3);
-	write(1, "pa\n", 3);
-	write(1, "pa\n", 3);
+	if (countlist(stock) > 3)
+		push_swap(stock, tampon);
+	threenbs(stock);
 	return (1);
 }

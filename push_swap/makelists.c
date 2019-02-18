@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:10:35 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/15 15:57:44 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/18 17:22:40 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,19 @@ int		putlists(t_lcheck **stock, char *str)
 		tmp->next = new;
 	}
 	return (1);
+}
+
+int		countlist(t_lcheck **stock)
+{
+	int			i;
+	t_lcheck	*tmp;
+
+	i = (*stock) ? 1 : 0;
+	tmp = (*stock);
+	while (tmp->next)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
 }

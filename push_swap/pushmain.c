@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:21:51 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/15 19:17:53 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/18 14:44:29 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int		checkpile(char *str, t_lcheck **stock)
 			tmp = tmp->next;
 		}
 	}
-	if (ft_strisint(str) || (ft_atol(str) >= -2147483648
-	|| ft_atol(str) <= 2147483647))
+	if (ft_strisint(str) && (ft_atol(str) >= -2147483648
+	&& ft_atol(str) <= 2147483647))
 	{
 		if (!putlists(stock, str))
 			return (0);
