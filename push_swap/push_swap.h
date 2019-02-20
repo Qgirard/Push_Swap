@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:22:16 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/18 17:44:11 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/20 14:44:51 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void			pushb(t_lcheck **stock, t_lcheck **tampon);
 void			makera(t_lcheck **stock);
 int				countlist(t_lcheck **stock);
 void			makerra(t_lcheck **stock);
+int				mediane(t_lcheck **stock);
 
 #endif

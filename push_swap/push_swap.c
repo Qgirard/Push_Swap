@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 15:23:40 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/18 19:37:37 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/20 14:45:42 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		push_swap(t_lcheck **stock, t_lcheck **tampon)
 
 	tmp = (*stock);
 	ptr = (*stock);
+	mediane(stock);
 	while (tmp->next)
 		tmp = tmp->next;
 	while (ptr && ptr->i != tmp->i)
@@ -65,6 +66,10 @@ int		push_swap(t_lcheck **stock, t_lcheck **tampon)
 	}
 	if (countlist(stock) > 3)
 		push_swap(stock, tampon);
-	threenbs(stock);
+	if (countlist(stock) <= 3)
+	{
+		threenbs(stock);
+		return (1);
+	}
 	return (1);
 }
