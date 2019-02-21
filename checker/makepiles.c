@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:44:13 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/18 19:48:57 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/21 18:50:10 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,24 @@ void	pushinpileb(t_pile **pile, t_pile **temp)
 	t_pile *tmp;
 
 	tmp = (*pile);
-	if ((*pile)->next)
-		(*pile) = (*pile)->next;
-	else
-		(*pile) = NULL;
-	tmp->prev = NULL;
-	if ((*temp))
+	if ((*pile))
 	{
-		tmp->next = (*temp);
-		(*temp)->prev = tmp;
-		(*temp) = (*temp)->prev;
-	}
-	else
-	{
-		tmp->next = NULL;
-		(*temp) = tmp;
+		if ((*pile)->next)
+			(*pile) = (*pile)->next;
+		else
+			(*pile) = NULL;
+		tmp->prev = NULL;
+		if ((*temp))
+		{
+			tmp->next = (*temp);
+			(*temp)->prev = tmp;
+			(*temp) = (*temp)->prev;
+		}
+		else
+		{
+			tmp->next = NULL;
+			(*temp) = tmp;
+		}
 	}
 }
 
@@ -40,7 +43,7 @@ void	pushinpilea(t_pile **pile, t_pile **temp)
 	t_pile	*tmp;
 
 	tmp = (*temp);
-	if (temp)
+	if (*temp)
 	{
 		if ((*temp)->next)
 			(*temp) = (*temp)->next;

@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:22:16 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/20 14:44:51 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/21 18:59:51 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,31 @@ typedef struct	s_lcheck
 	struct s_lcheck *prev;
 }				t_lcheck;
 
+typedef struct	s_moves
+{
+	int				sa;
+	int				sb;
+	int				pa;
+	int				pb;
+	int				ra;
+	int				rb;
+	int				rra;
+	int				rrb;
+	struct s_moves	*next;
+}				t_moves;
+
 int				putlists(t_lcheck **stock, char *str);
-int				freewhenerror(t_lcheck **stock);
-int				push_swap(t_lcheck **stock, t_lcheck **tampon);
-int				freend(t_lcheck **stock, t_lcheck **tampon);
-void			pushb(t_lcheck **stock, t_lcheck **tampon);
-void			makera(t_lcheck **stock);
+int				freewhenerror(t_lcheck **stock, t_lcheck **tampon,
+				t_moves **actions);
+int				push_swap(t_lcheck **stock, t_lcheck **tampon,
+				t_moves **actions, int var);
+int				freend(t_lcheck **stock, t_lcheck **tampon, t_moves **actions);
+int				pusha(t_lcheck **stock, t_lcheck **tampon, t_moves **actions);
+int				pushb(t_lcheck **stock, t_lcheck **tampon, t_moves **actions);
+int				makera(t_lcheck **stock, t_moves **actions);
 int				countlist(t_lcheck **stock);
-void			makerra(t_lcheck **stock);
+int				makerra(t_lcheck **stock, t_moves **actions);
 int				mediane(t_lcheck **stock);
+int				stockactions(t_moves **actions);
 
 #endif

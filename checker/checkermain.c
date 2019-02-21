@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:49:57 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/18 15:01:10 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/21 14:40:40 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int		main(int argc, char **argv)
 	}
 	if (!checker(&pile))
 		return (freeanderror(&pile, 1));
-	while (pile)
+	/*while (pile)
 	{
 		ft_printf("%d\n", pile->i);
 		pile = pile->next;
-	}
+	}*/
 	freeanderror(&pile, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:29:15 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/15 18:22:17 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/21 18:49:01 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	reverserotateb(t_pile **temp)
 	t_pile	*tmp;
 	t_pile	*ptr;
 
-	if ((*temp)->next)
+	if ((*temp) && (*temp)->next)
 	{
 		tmp = (*temp);
 		while ((*temp)->next)
@@ -35,7 +35,7 @@ void	reverserotatea(t_pile **pile)
 	t_pile	*tmp;
 	t_pile	*ptr;
 
-	if ((*pile)->next)
+	if ((*pile) && (*pile)->next)
 	{
 		tmp = (*pile);
 		while ((*pile)->next)
@@ -54,7 +54,7 @@ void	rotatea(t_pile **pile)
 	t_pile	*ptr;
 
 	tmp = (*pile);
-	if ((*pile)->next)
+	if ((*pile) && (*pile)->next)
 	{
 		(*pile) = (*pile)->next;
 		ptr = (*pile);
@@ -73,7 +73,7 @@ void	rotateb(t_pile **temp)
 	t_pile	*ptr;
 
 	tmp = (*temp);
-	if ((*temp)->next)
+	if ((*temp) && (*temp)->next)
 	{
 		(*temp) = (*temp)->next;
 		ptr = (*temp);

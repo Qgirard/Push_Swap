@@ -6,11 +6,40 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:10:35 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/18 17:22:40 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/02/21 18:32:31 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int		stockactions(t_moves **actions)
+{
+	t_moves	*tmp;
+	t_moves	*new;
+
+	tmp = (*actions);
+	if ((*actions) != NULL)
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+	}
+	if (!(new = (t_moves *)malloc(sizeof(t_moves))))
+		return (0);
+	new->next = NULL;
+	new->sa = 0;
+	new->sb = 0;
+	new->pa = 0;
+	new->pb = 0;
+	new->ra = 0;
+	new->rb = 0;
+	new->rra = 0;
+	new->rrb = 0;
+	if (!(*actions))
+		(*actions) = new;
+	else
+		tmp->next = new;
+	return (1);
+}
 
 int		putlists(t_lcheck **stock, char *str)
 {
@@ -47,7 +76,7 @@ int		countlist(t_lcheck **stock)
 
 	i = (*stock) ? 1 : 0;
 	tmp = (*stock);
-	while (tmp->next)
+	while (tmp && tmp->next)
 	{
 		i++;
 		tmp = tmp->next;
