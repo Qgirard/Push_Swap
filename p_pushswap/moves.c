@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 15:28:58 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/21 19:00:40 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/05 17:12:11 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,29 @@ int		pusha(t_lcheck **stock, t_lcheck **tampon, t_moves **actions)
 	return (1);
 }
 
+int		makerb(t_lcheck **tampon, t_moves **actions)
+{
+	t_lcheck	*tmp;
+	t_lcheck	*ptr;
+
+	tmp = (*tampon);
+	if (!(stockactions(actions)))
+		return (0);
+	(*actions)->rb = 1;
+	if ((*tampon)->next)
+	{
+		(*tampon) = (*tampon)->next;
+		ptr = (*tampon);
+		while (ptr->next)
+			ptr = ptr->next;
+		(*tampon)->prev = NULL;
+		tmp->prev = ptr;
+		tmp->next = NULL;
+		ptr->next = tmp;
+	}
+	return (1);
+}
+
 int		makera(t_lcheck **stock, t_moves **actions)
 {
 	t_lcheck	*tmp;
@@ -86,28 +109,6 @@ int		makera(t_lcheck **stock, t_moves **actions)
 		tmp->prev = ptr;
 		tmp->next = NULL;
 		ptr->next = tmp;
-	}
-	return (1);
-}
-
-int		makerra(t_lcheck **stock, t_moves **actions)
-{
-	t_lcheck	*tmp;
-	t_lcheck	*ptr;
-
-	if (!(stockactions(actions)))
-		return (0);
-	(*actions)->rra = 1;
-	if ((*stock)->next)
-	{
-		tmp = (*stock);
-		while ((*stock)->next)
-			(*stock) = (*stock)->next;
-		ptr = (*stock)->prev;
-		ptr->next = NULL;
-		(*stock)->prev = NULL;
-		tmp->prev = (*stock);
-		(*stock)->next = tmp;
 	}
 	return (1);
 }

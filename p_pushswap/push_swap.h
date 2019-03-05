@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:22:16 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/05 14:17:24 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/05 17:46:35 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,21 @@ int				freend(t_lcheck **stock, t_lcheck **tampon, t_moves **actions);
 int				pusha(t_lcheck **stock, t_lcheck **tampon, t_moves **actions);
 int				pushb(t_lcheck **stock, t_lcheck **tampon, t_moves **actions);
 int				makera(t_lcheck **stock, t_moves **actions);
+int				makerb(t_lcheck **tampon, t_moves **actions);
 int				countlist(t_lcheck **stock);
 int				makerra(t_lcheck **stock, t_moves **actions);
+int				makerrb(t_lcheck **tampon, t_moves **actions);
 int				mediane(t_lcheck **stock);
 int				stockactions(t_moves **actions);
 int				trinbs(t_lcheck **stock, t_moves **actions);
+int				rev_trinbs(t_lcheck **tampon, t_moves **actions, int var);
 void			printactions(t_moves **actions);
 int				checksort(t_lcheck **stock);
+int				recup_in_b(t_lcheck **stock, t_lcheck **tampon,
+				t_moves **actions, int var);
+int				push_rotate(t_lcheck **stock, t_lcheck **tampon,
+				t_moves **actions, int var);
+int				rev_push_rotate(t_lcheck **stock, t_lcheck **tampon,
+				t_moves **actions, int var);
 
 #endif

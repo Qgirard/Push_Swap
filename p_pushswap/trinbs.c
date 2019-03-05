@@ -6,11 +6,24 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 12:26:16 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/05 12:26:32 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/05 17:46:51 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int		rev_trinbs(t_lcheck **tampon, t_moves **actions, int var)
+{
+	t_lcheck	*tmp;
+
+	tmp = (*tampon);
+	if (var <= 2)
+	{
+		if (tmp && tmp->next && (tmp->i < tmp->next->i))
+			ft_swap(&((*tampon)->i), &((*tampon)->next->i));
+	}
+	return (1);
+}
 
 int		sortnum(t_lcheck **stock, t_moves **actions, t_lcheck *tmp)
 {
