@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:50:19 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/15 18:22:31 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/05 15:34:46 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void			rotatea(t_pile **pile);
 void			rotateb(t_pile **temp);
 void			reverserotatea(t_pile **pile);
 void			reverserotateb(t_pile **temp);
+int				pile_is_sort(t_pile **pile);
 
 #endif

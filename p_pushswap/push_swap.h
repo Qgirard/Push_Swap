@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:22:16 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/21 18:59:51 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/05 14:17:24 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ int				countlist(t_lcheck **stock);
 int				makerra(t_lcheck **stock, t_moves **actions);
 int				mediane(t_lcheck **stock);
 int				stockactions(t_moves **actions);
+int				trinbs(t_lcheck **stock, t_moves **actions);
+void			printactions(t_moves **actions);
+int				checksort(t_lcheck **stock);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 16:35:29 by qgirard           #+#    #+#              #
-#    Updated: 2019/02/20 17:53:44 by qgirard          ###   ########.fr        #
+#    Updated: 2019/03/05 15:38:42 by qgirard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,25 +18,32 @@ CLIB = make -C libftprintf clean
 FCLIB = make -C libftprintf fclean
 LIB = libftprintf/libftprintf.a
 
-HEADER1 = checker.h
-HEADER2 = push_swap.h
+HEADER1 = p_checker/checker.h
+HEADER2 = p_pushswap/push_swap.h
 
-CC = gcc
+CC = gcc -o
 CFLAGS = -Wall -Wextra -Werror
 
-SRC1 = checker/checker.c checker/checkermain.c checker/freecauses.c \
-			checker/makepiles.c checker/rotate.c
-SRC2 = push_swap/makelists.c push_swap/moves.c push_swap/needfree.c \
-			push_swap/push_swap.c push_swap/pushmain.c
+SRC1 = p_checker/checker.c p_checker/checkermain.c p_checker/freecauses.c \
+			p_checker/makepiles.c p_checker/rotate.c p_checker/pile_is_sort.c
+SRC2 = p_pushswap/makelists.c p_pushswap/moves.c p_pushswap/needfree.c \
+			p_pushswap/push_swap.c p_pushswap/pushmain.c \
+			p_pushswap/mediane.c p_pushswap/checksort.c \
+			p_pushswap/printactions.c p_pushswap/trinbs.c
 
 OBJ1 = $(SRC1:.c=.o)
 OBJ2 = $(SRC2:.c=.o)
 
-all : $(NAME)
+all : $(LIB) $(EXEC1) $(EXEC2)
 
-$(NAME) : $(OBJ1) $(OBJ2)
-	$(COMPILIB) && $(CC) $(EXEC1) $(CFLAGS) $(SRC1) $(LIB)
-	&& $(CC) $(EXEC2) $(CFLAGS) $(SRC2) $(LIB)
+$(LIB) :
+	$(COMPILIB)
+
+$(EXEC1) : $(OBJ1)
+	$(CC) $(EXEC1) $(CFLAGS) $(SRC1) $(LIB)
+
+$(EXEC2) : $(OBJ2)
+	$(CC) $(EXEC2) $(CFLAGS) $(SRC2) $(LIB)
 
 clean :
 	rm -rf $(OBJ1)

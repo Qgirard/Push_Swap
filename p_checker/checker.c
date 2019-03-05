@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 19:02:27 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/18 19:47:49 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/05 15:34:25 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,9 @@ int		checker(t_pile **pile)
 		}
 		ft_strdel(&line);
 	}
-	if (temp)
+	if (temp || !pile_is_sort(pile))
 		write(1, "[KO]\n", 5);
+	else
+		write(1, "[OK]\n", 5);
 	return (1);
 }

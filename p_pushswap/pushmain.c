@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:21:51 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/21 18:09:51 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/05 13:42:10 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int		main(int argc, char **argv)
 	}
 	if (!(push_swap(&stock, &tampon, &actions, countlist(&stock))))
 		return (freewhenerror(&stock, &tampon, &actions));
+	printactions(&actions);
 	freend(&stock, &tampon, &actions);
 	return (0);
 }
