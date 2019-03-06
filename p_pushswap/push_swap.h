@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:22:16 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/05 17:46:35 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/06 17:59:58 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,13 @@ int				makerb(t_lcheck **tampon, t_moves **actions);
 int				countlist(t_lcheck **stock);
 int				makerra(t_lcheck **stock, t_moves **actions);
 int				makerrb(t_lcheck **tampon, t_moves **actions);
+int				ft_swap_stock(t_lcheck **stock, t_moves **actions, char c);
 int				mediane(t_lcheck **stock);
-int				stockactions(t_moves **actions);
-int				trinbs(t_lcheck **stock, t_moves **actions);
-int				rev_trinbs(t_lcheck **tampon, t_moves **actions, int var);
+int				stockactions(t_moves **actions, int var);
+int				tri2_3nbs(t_lcheck **stock, t_lcheck **tampon,
+				t_moves **actions, char c);
+int				tri_when_pile_a(t_lcheck **stock, t_moves **actions, int var);
+int				tri_pile_b(t_lcheck **tampon, t_moves **actions, int var);
 void			printactions(t_moves **actions);
 int				checksort(t_lcheck **stock);
 int				recup_in_b(t_lcheck **stock, t_lcheck **tampon,

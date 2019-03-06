@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:44:13 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/21 18:50:10 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/06 14:05:38 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	pushinpilea(t_pile **pile, t_pile **temp)
 		else
 			(*temp) = NULL;
 		tmp->prev = NULL;
-		tmp->next = (*pile);
 		if ((*pile))
 		{
 			tmp->next = (*pile);

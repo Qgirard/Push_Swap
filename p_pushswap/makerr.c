@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 17:11:42 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/05 17:14:54 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/06 18:02:42 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ int		makerrb(t_lcheck **tampon, t_moves **actions)
 	t_lcheck	*tmp;
 	t_lcheck	*ptr;
 
-	if (!(stockactions(actions)))
+	if (!(stockactions(actions, 8)))
 		return (0);
-	(*actions)->rrb = 1;
 	if ((*tampon) && (*tampon)->next)
 	{
 		tmp = (*tampon);
@@ -39,9 +38,8 @@ int		makerra(t_lcheck **stock, t_moves **actions)
 	t_lcheck	*tmp;
 	t_lcheck	*ptr;
 
-	if (!(stockactions(actions)))
+	if (!(stockactions(actions, 7)))
 		return (0);
-	(*actions)->rra = 1;
 	if ((*stock)->next)
 	{
 		tmp = (*stock);
