@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 13:46:50 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/06 15:34:03 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/08 15:37:08 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int		tri2_3nbs(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 		else if (!(sortnum(stock, actions, tmp)))
 			return (0);
 	}
-	else if ((*stock)->next && c == 'b')
+	else if ((*tampon)->next && c == 'b')
 		if (!(tri_in_b(tampon, actions)))
 			return (0);
 	return (1);

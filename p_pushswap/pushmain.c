@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:21:51 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/06 16:54:15 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/08 16:43:29 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int		main(int argc, char **argv)
 	t_lcheck	*stock;
 	t_moves		*actions;
 	t_lcheck	*tampon;
-	t_lcheck	*tmp;
-	t_lcheck	*ptr;
+	//t_lcheck	*tmp;
+	//t_lcheck	*ptr;
 
 	i = 1;
 	stock = NULL;
@@ -58,9 +58,10 @@ int		main(int argc, char **argv)
 			return (freewhenerror(&stock, &tampon, &actions));
 		i++;
 	}
-	if (!(push_swap(&stock, &tampon, &actions, countlist(&stock))))
-		return (freewhenerror(&stock, &tampon, &actions));
-	tmp = stock;
+	if (!(checksort(&stock)))
+		if (!(push_swap(&stock, &tampon, &actions, countlist(&stock))))
+			return (freewhenerror(&stock, &tampon, &actions));
+	/*tmp = stock;
 	ptr = tampon;
 	ft_putendl("--------------");
 	while (tmp || ptr)
@@ -80,7 +81,7 @@ int		main(int argc, char **argv)
 		}
 		else
 			ft_printf("\n");
-	}
+	}*/
 	printactions(&actions);
 	freend(&stock, &tampon, &actions);
 	return (0);
