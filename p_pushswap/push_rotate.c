@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 16:50:41 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/06 14:09:34 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/09 14:04:58 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		rev_push_rotate(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 	tmp = (*tampon);
 	i = 0;
 	k = mediane(tampon);
+	ft_printf("MEDIANE = %d\n", k);
 	while (tmp && i < var)
 	{
 		if (tmp->i > k)

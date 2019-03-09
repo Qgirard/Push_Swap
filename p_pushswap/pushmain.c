@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:21:51 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/08 16:43:29 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/09 12:59:30 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		main(int argc, char **argv)
 		else
 			ft_printf("\n");
 	}*/
-	printactions(&actions);
+	//printactions(&actions);
 	freend(&stock, &tampon, &actions);
 	return (0);
 }
