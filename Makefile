@@ -6,7 +6,7 @@
 #    By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 16:35:29 by qgirard           #+#    #+#              #
-#    Updated: 2019/03/13 14:56:11 by qgirard          ###   ########.fr        #
+#    Updated: 2019/03/13 15:57:31 by qgirard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,9 @@ $(EXEC1) : $(OBJ1)
 
 $(EXEC2) : $(OBJ2)
 	$(CC) $(EXEC2) $(CFLAGS) $(SRC2) $(LIB)
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -c -I $(HEADER1) $< -o $@
 
 clean :
 	rm -rf $(OBJ1)

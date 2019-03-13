@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 12:51:53 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/13 14:55:20 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/13 16:24:07 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	reduce_swaps(t_moves **tmp)
 {
 	while (*tmp && ((*tmp)->sa == 1 || (*tmp)->sb == 1))
 	{
-		if ((*tmp)->sa == 1 && (*tmp)->next->sa == 1)
+		if ((*tmp)->next && (*tmp)->sa == 1 && (*tmp)->next->sa == 1)
 		{
 			(*tmp)->sa = 0;
 			(*tmp)->next->sa = 0;
 			*tmp = (*tmp)->next->next;
 		}
-		else if ((*tmp)->sb == 1 && (*tmp)->next->sb == 1)
+		else if ((*tmp)->next && (*tmp)->sb == 1 && (*tmp)->next->sb == 1)
 		{
 			(*tmp)->sb = 0;
 			(*tmp)->next->sb = 0;
