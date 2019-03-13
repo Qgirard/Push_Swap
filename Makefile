@@ -6,17 +6,17 @@
 #    By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 16:35:29 by qgirard           #+#    #+#              #
-#    Updated: 2019/03/06 17:34:27 by qgirard          ###   ########.fr        #
+#    Updated: 2019/03/13 14:56:11 by qgirard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXEC1 = checker
 EXEC2 = push_swap
 
-COMPILIB = make -C libftprintf
-CLIB = make -C libftprintf clean
-FCLIB = make -C libftprintf fclean
-LIB = libftprintf/libftprintf.a
+COMPILIB = make -C libft
+CLIB = make -C libft clean
+FCLIB = make -C libft fclean
+LIB = libft/libft.a
 
 HEADER1 = p_checker/checker.h
 HEADER2 = p_pushswap/push_swap.h
@@ -31,7 +31,8 @@ SRC2 = p_pushswap/makelists.c p_pushswap/moves.c p_pushswap/needfree.c \
 			p_pushswap/mediane.c p_pushswap/checksort.c \
 			p_pushswap/printactions.c p_pushswap/tri2_3nbs.c p_pushswap/recup.c \
 			p_pushswap/push_rotate.c p_pushswap/makerr.c \
-			p_pushswap/tri_when_pile.c p_pushswap/tri_pile_b.c
+			p_pushswap/tri_when_pile.c p_pushswap/tri_pile_b.c \
+			p_pushswap/reduce_actions.c p_pushswap/reduce_rotate.c
 
 OBJ1 = $(SRC1:.c=.o)
 OBJ2 = $(SRC2:.c=.o)

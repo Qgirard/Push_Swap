@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 12:35:46 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/06 17:46:46 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/13 14:07:13 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	printactions(t_moves **actions)
 {
 	t_moves *tmp;
 
+	reduce_actions(actions);
 	tmp = (*actions);
 	while (tmp)
 	{

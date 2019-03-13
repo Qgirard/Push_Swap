@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 13:12:04 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/01 18:17:53 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/11 18:50:47 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "libft/libft.h"
+# include "../libft.h"
 
 typedef struct	s_check
 {

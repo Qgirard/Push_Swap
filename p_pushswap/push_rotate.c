@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 16:50:41 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/09 14:04:58 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/13 12:39:51 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ int		rev_push_rotate(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 		int var)
 {
 	t_lcheck	*tmp;
-	int			k;
 	int			i;
+	int			k;
 
 	tmp = (*tampon);
 	i = 0;
 	k = mediane(tampon);
-	ft_printf("MEDIANE = %d\n", k);
-	while (tmp && i < var)
+	while (tmp && var > 0)
 	{
 		if (tmp->i > k)
 		{
+			i++;
 			tmp = tmp->next;
 			if (!(pusha(stock, tampon, actions)))
 				return (-1);
@@ -34,12 +34,12 @@ int		rev_push_rotate(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 		else if (tmp->i <= k)
 		{
 			tmp = tmp->next;
-			if (!(makerb(stock, actions)))
+			if (!(makerb(tampon, actions)))
 				return (-1);
 		}
-		i++;
+		var--;
 	}
-	return (1);
+	return (i);
 }
 
 int		push_rotate(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
@@ -52,10 +52,11 @@ int		push_rotate(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 	tmp = (*stock);
 	i = 0;
 	k = mediane(stock);
-	while (tmp && i < var)
+	while (tmp && var > 0)
 	{
 		if (tmp->i < k)
 		{
+			i++;
 			tmp = tmp->next;
 			if (!(pushb(stock, tampon, actions)))
 				return (-1);
@@ -66,7 +67,7 @@ int		push_rotate(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 			if (!(makera(stock, actions)))
 				return (-1);
 		}
-		i++;
+		var--;
 	}
-	return (1);
+	return (i);
 }

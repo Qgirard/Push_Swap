@@ -6,14 +6,14 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:22:16 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/09 12:54:14 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/13 14:55:35 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libftprintf/ft_printf.h"
+# include "../libft/libft.h"
 
 typedef struct	s_lcheck
 {
@@ -65,5 +65,10 @@ int				push_rotate(t_lcheck **stock, t_lcheck **tampon,
 				t_moves **actions, int var);
 int				rev_push_rotate(t_lcheck **stock, t_lcheck **tampon,
 				t_moves **actions, int var);
+int				reduce_actions(t_moves **actions);
+void			reduce_rotatea(t_moves **tmp, t_moves **ptr);
+void			reduce_morerotatea(t_moves **tmp, t_moves **ptr);
+void			reduce_rotateb(t_moves **tmp, t_moves **ptr);
+void			reduce_morerotateb(t_moves **tmp, t_moves **ptr);
 
 #endif

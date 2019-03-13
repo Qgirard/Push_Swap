@@ -6,14 +6,14 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:50:19 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/05 15:34:46 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/13 12:09:45 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 
-# include "../libftprintf/ft_printf.h"
+# include "../libft/libft.h"
 
 typedef struct	s_pile
 {

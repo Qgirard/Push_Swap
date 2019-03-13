@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 15:23:40 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/09 13:53:41 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/13 12:44:11 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		push_swap_in_b(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 	int			i;
 
 	ft_printf("VAR = %d\n", var);
-	i = countlist(stock);
 	if (var <= 3)
 	{
 		if (countlist(tampon) <= 3)
@@ -30,12 +29,14 @@ int		push_swap_in_b(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 			return (0);
 		return (1);
 	}
-	if (rev_push_rotate(stock, tampon, actions, var) == -1)
+	i = rev_push_rotate(stock, tampon, actions, var);
+	if (i == -1)
 		return (0);
-	i = countlist(stock) - i;
-	push_swap_in_b(stock, tampon, actions, var - i);
+	if (!push_swap_in_b(stock, tampon, actions, var - i))
+		return (0);
 	ft_printf("i = %d\n", i);
-	push_swap(stock, tampon, actions, i);
+	if (!push_swap(stock, tampon, actions, i))
+		return (0);
 	recup_in_a(stock, tampon, actions, i);
 	return (1);
 }
@@ -47,7 +48,6 @@ int		push_swap(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 	t_lcheck	*tmp;
 	t_lcheck	*ptr;
 
-	i = countlist(tampon);
 	if (var <= 3)
 	{
 		if (countlist(stock) <= 3)
@@ -59,14 +59,14 @@ int		push_swap(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 			return (0);
 		return (1);
 	}
-	if (push_rotate(stock, tampon, actions, var) == -1)
+	i = push_rotate(stock, tampon, actions, var);
+	if (i == -1)
 		return (0);
-	i = countlist(tampon) - i;
 	ft_printf("I = %d\n", i);
-	push_swap(stock, tampon, actions, var - i);
-	/*if (!(checksort(stock)))
-		push_swap_in_b(stock, tampon, actions, var - i);*/
-	push_swap_in_b(stock, tampon, actions, i);
+	if (!push_swap(stock, tampon, actions, var - i))
+		return (0);
+	if (!push_swap_in_b(stock, tampon, actions, i))
+		return (0);
 	recup_in_b(stock, tampon, actions, i);
 	tmp = *stock;
 	ptr = *tampon;

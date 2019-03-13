@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 16:44:37 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/08 14:34:52 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/13 14:57:09 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		recup_in_b(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 	i = 0;
 	while (i < var && (*tampon))
 	{
-		if(!pusha(stock, tampon, actions))
+		if (!pusha(stock, tampon, actions))
 			return (0);
 		i++;
 	}

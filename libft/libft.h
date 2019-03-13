@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:55:13 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/15 18:56:39 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/11 18:50:05 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,6 @@ char				*ft_sctoa(signed char n);
 char				*ft_uctoa_base(unsigned char n, int base);
 int					ft_strisint(char *str);
 long				ft_atol(const char *str);
+int					ft_printf(const char *format, ...);
 
 #endif
