@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 13:42:54 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/21 14:19:24 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/15 14:36:44 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		findmed(int **tab, int pivot)
 	return (pivot / 2);
 }
 
-int		mediane(t_lcheck **stock)
+int		mediane(t_lcheck **stock, int var)
 {
 	int			*tab;
 	int			k;
@@ -46,15 +46,15 @@ int		mediane(t_lcheck **stock)
 	tab = NULL;
 	k = 0;
 	tmp = (*stock);
-	if (!(tab = (int *)malloc(sizeof(int) * (countlist(stock)))))
+	if (!(tab = (int *)malloc(sizeof(int) * var)))
 		return (0);
-	while (tmp)
+	while (tmp && k < var)
 	{
 		tab[k] = tmp->i;
 		k++;
 		tmp = tmp->next;
 	}
-	k = tab[findmed(&tab, countlist(stock) - 1)];
+	k = tab[findmed(&tab, var - 1)];
 	free(tab);
 	return (k);
 }

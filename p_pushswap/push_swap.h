@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:22:16 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/13 14:55:35 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/15 17:02:06 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ int				pusha(t_lcheck **stock, t_lcheck **tampon, t_moves **actions);
 int				pushb(t_lcheck **stock, t_lcheck **tampon, t_moves **actions);
 int				makera(t_lcheck **stock, t_moves **actions);
 int				makerb(t_lcheck **tampon, t_moves **actions);
+int				make_order_in_pile(t_lcheck **stock, t_moves **actions, int j,
+				int var);
 int				countlist(t_lcheck **stock);
 int				makerra(t_lcheck **stock, t_moves **actions);
 int				makerrb(t_lcheck **tampon, t_moves **actions);
 int				ft_swap_stock(t_lcheck **stock, t_moves **actions, char c);
-int				mediane(t_lcheck **stock);
+int				mediane(t_lcheck **stock, int var);
 int				stockactions(t_moves **actions, int var);
 int				tri2_3nbs(t_lcheck **stock, t_lcheck **tampon,
 				t_moves **actions, char c);

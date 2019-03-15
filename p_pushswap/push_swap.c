@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 15:23:40 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/13 12:44:11 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/15 17:16:53 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int		push_swap_in_b(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 {
 	int			i;
 
-	ft_printf("VAR = %d\n", var);
 	if (var <= 3)
 	{
 		if (countlist(tampon) <= 3)
@@ -34,7 +33,6 @@ int		push_swap_in_b(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 		return (0);
 	if (!push_swap_in_b(stock, tampon, actions, var - i))
 		return (0);
-	ft_printf("i = %d\n", i);
 	if (!push_swap(stock, tampon, actions, i))
 		return (0);
 	recup_in_a(stock, tampon, actions, i);
@@ -45,8 +43,6 @@ int		push_swap(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 		int var)
 {
 	int			i;
-	t_lcheck	*tmp;
-	t_lcheck	*ptr;
 
 	if (var <= 3)
 	{
@@ -62,32 +58,10 @@ int		push_swap(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 	i = push_rotate(stock, tampon, actions, var);
 	if (i == -1)
 		return (0);
-	ft_printf("I = %d\n", i);
 	if (!push_swap(stock, tampon, actions, var - i))
 		return (0);
 	if (!push_swap_in_b(stock, tampon, actions, i))
 		return (0);
 	recup_in_b(stock, tampon, actions, i);
-	tmp = *stock;
-	ptr = *tampon;
-	ft_putendl("--------------");
-	while (tmp || ptr)
-	{
-		if (tmp)
-		{
-			ft_printf("%d", tmp->i);
-			tmp = tmp->next;
-		}
-		else
-			ft_printf(" ");
-		ft_printf("     |     ");
-		if (ptr)
-		{
-			ft_printf("%d\n", ptr->i);
-			ptr = ptr->next;
-		}
-		else
-			ft_printf("\n");
-	}
 	return (1);
 }

@@ -6,11 +6,34 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 17:11:42 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/13 12:13:55 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/15 17:01:37 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int		make_order_in_pile(t_lcheck **stock, t_moves **actions, int j, int var)
+{
+	if (var == 1)
+	{
+		while (j > 0)
+		{
+			if (!(makerra(stock, actions)))
+				return (0);
+			j--;
+		}
+	}
+	else if (var == 2)
+	{
+		while (j > 0)
+		{
+			if (!(makerrb(stock, actions)))
+				return (0);
+			j--;
+		}
+	}
+	return (1);
+}
 
 int		makerrb(t_lcheck **tampon, t_moves **actions)
 {

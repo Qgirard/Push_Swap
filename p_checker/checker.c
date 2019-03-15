@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 19:02:27 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/05 15:34:25 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/15 15:38:34 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,9 @@ int		makemoves(t_pile **pile, t_pile **temp, char *line)
 
 int		checker(t_pile **pile)
 {
-	t_pile *temp;
+	t_pile	*temp;
+	t_pile	*tmp;
+	t_pile	*ptr;
 	char	*line;
 
 	line = NULL;
@@ -79,9 +81,30 @@ int		checker(t_pile **pile)
 		}
 		ft_strdel(&line);
 	}
+	tmp = (*pile);
+	ptr = temp;
+	ft_putendl("--------------");
+	while (tmp || ptr)
+	{
+		if (tmp)
+		{
+			ft_printf("%d", tmp->i);
+			tmp = tmp->next;
+		}
+		else
+			ft_printf(" ");
+		ft_printf("     |     ");
+		if (ptr)
+		{
+			ft_printf("%d\n", ptr->i);
+			ptr = ptr->next;
+		}
+		else
+			ft_printf("\n");
+	}
 	if (temp || !pile_is_sort(pile))
 		write(1, "[KO]\n", 5);
-	else
+	else if (!temp && pile_is_sort(pile))
 		write(1, "[OK]\n", 5);
 	return (1);
 }

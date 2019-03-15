@@ -6,22 +6,49 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 16:50:41 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/13 12:39:51 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/15 17:12:46 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int		count_rb_in_b(t_lcheck **tampon, t_lcheck **tmp, t_moves **actions,
+		int *j)
+{
+	*j = *j + 1;
+	*tmp = (*tmp)->next;
+	if (!(makerb(tampon, actions)))
+		return (0);
+	return (1);
+}
+
+int		count_ra_in_a(t_lcheck **stock, t_lcheck **tmp, t_moves **actions,
+		int *j)
+{
+	*j = *j + 1;
+	*tmp = (*tmp)->next;
+	if (!(makera(stock, actions)))
+		return (0);
+	return (1);
+}
+
+void	variables(t_lcheck **stock, t_lcheck **tmp, int *i, int *j)
+{
+	*tmp = (*stock);
+	*i = 0;
+	*j = 0;
+}
 
 int		rev_push_rotate(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 		int var)
 {
 	t_lcheck	*tmp;
 	int			i;
+	int			j;
 	int			k;
 
-	tmp = (*tampon);
-	i = 0;
-	k = mediane(tampon);
+	variables(tampon, &tmp, &i, &j);
+	k = mediane(tampon, var);
 	while (tmp && var > 0)
 	{
 		if (tmp->i > k)
@@ -32,13 +59,12 @@ int		rev_push_rotate(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 				return (-1);
 		}
 		else if (tmp->i <= k)
-		{
-			tmp = tmp->next;
-			if (!(makerb(tampon, actions)))
+			if (!count_rb_in_b(tampon, &tmp, actions, &j))
 				return (-1);
-		}
 		var--;
 	}
+	if (!make_order_in_pile(tampon, actions, j, 2))
+		return (-1);
 	return (i);
 }
 
@@ -47,11 +73,11 @@ int		push_rotate(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 {
 	int			k;
 	int			i;
+	int			j;
 	t_lcheck	*tmp;
 
-	tmp = (*stock);
-	i = 0;
-	k = mediane(stock);
+	variables(stock, &tmp, &i, &j);
+	k = mediane(stock, var);
 	while (tmp && var > 0)
 	{
 		if (tmp->i < k)
@@ -62,12 +88,11 @@ int		push_rotate(t_lcheck **stock, t_lcheck **tampon, t_moves **actions,
 				return (-1);
 		}
 		else if (tmp->i >= k)
-		{
-			tmp = tmp->next;
-			if (!(makera(stock, actions)))
+			if (!count_ra_in_a(stock, &tmp, actions, &j))
 				return (-1);
-		}
 		var--;
 	}
+	if (!make_order_in_pile(stock, actions, j, 1))
+		return (-1);
 	return (i);
 }
