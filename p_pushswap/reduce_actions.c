@@ -6,11 +6,30 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 12:51:53 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/15 17:20:52 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/21 15:30:18 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	reduce_double_actions(t_moves **tmp, int i)
+{
+	if (i == 1)
+	{
+		write(1, "ss\n", 3);
+		*tmp = (*tmp)->next->next;
+	}
+	if (i == 2)
+	{
+		write(1, "rr\n", 3);
+		*tmp = (*tmp)->next->next;
+	}
+	if (i == 3)
+	{
+		write(1, "rrr\n", 4);
+		*tmp = (*tmp)->next->next;
+	}
+}
 
 void	reduce_swaps(t_moves **tmp)
 {

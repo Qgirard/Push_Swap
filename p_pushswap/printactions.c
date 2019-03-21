@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 12:35:46 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/13 14:07:13 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/21 15:31:33 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,14 @@ void	printactions(t_moves **actions)
 	{
 		if (tmp->next && ((tmp->sa && tmp->next->sb)
 		|| (tmp->sb && tmp->next->sa)))
-			write(1, "ss\n", 3);
+			reduce_double_actions(&tmp, 1);
 		else if (tmp->next && ((tmp->ra && tmp->next->rb)
 		|| (tmp->rb && tmp->next->ra)))
-			write(1, "rr\n", 3);
+			reduce_double_actions(&tmp, 2);
 		else if (tmp->next && ((tmp->rra && tmp->next->rrb)
 		|| (tmp->rrb && tmp->next->rra)))
-			write(1, "rrr\n", 4);
-		else
-			printmoreactions(tmp);
+			reduce_double_actions(&tmp, 3);
+		printmoreactions(tmp);
 		tmp = tmp->next;
 	}
 }

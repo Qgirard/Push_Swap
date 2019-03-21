@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:22:16 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/15 17:02:06 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/21 15:28:56 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int				push_rotate(t_lcheck **stock, t_lcheck **tampon,
 int				rev_push_rotate(t_lcheck **stock, t_lcheck **tampon,
 				t_moves **actions, int var);
 int				reduce_actions(t_moves **actions);
+void			reduce_double_actions(t_moves **tmp, int i);
 void			reduce_rotatea(t_moves **tmp, t_moves **ptr);
 void			reduce_morerotatea(t_moves **tmp, t_moves **ptr);
 void			reduce_rotateb(t_moves **tmp, t_moves **ptr);
