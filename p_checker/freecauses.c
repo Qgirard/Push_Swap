@@ -6,16 +6,18 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 18:42:39 by qgirard           #+#    #+#             */
-/*   Updated: 2019/02/15 15:51:24 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/29 19:02:39 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int		freeanderror(t_pile **pile, int i)
+int		freeanderror(t_pile **pile, t_mini **pts, int i)
 {
 	t_pile *tmp;
 
+	if (*pts)
+		free(*pts);
 	while ((*pile))
 	{
 		tmp = (*pile);

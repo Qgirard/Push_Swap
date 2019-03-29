@@ -6,7 +6,7 @@
 #    By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 16:35:29 by qgirard           #+#    #+#              #
-#    Updated: 2019/03/13 15:57:31 by qgirard          ###   ########.fr        #
+#    Updated: 2019/03/29 12:58:32 by qgirard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,9 @@ CLIB = make -C libft clean
 FCLIB = make -C libft fclean
 LIB = libft/libft.a
 
+MLX = -I /usr/local/include
+MLX_FLAGS = -L /usr/local/lib/ -lmlx -framework OpenGL -framework Appkit
+
 HEADER1 = p_checker/checker.h
 HEADER2 = p_pushswap/push_swap.h
 
@@ -25,7 +28,8 @@ CC = gcc -o
 CFLAGS = -Wall -Wextra -Werror
 
 SRC1 = p_checker/checker.c p_checker/checkermain.c p_checker/freecauses.c \
-			p_checker/makepiles.c p_checker/rotate.c p_checker/pile_is_sort.c
+			p_checker/makepiles.c p_checker/rotate.c p_checker/pile_is_sort.c \
+			p_checker/visu.c
 SRC2 = p_pushswap/makelists.c p_pushswap/moves.c p_pushswap/needfree.c \
 			p_pushswap/push_swap.c p_pushswap/pushmain.c \
 			p_pushswap/mediane.c p_pushswap/checksort.c \
@@ -43,7 +47,7 @@ $(LIB) :
 	$(COMPILIB)
 
 $(EXEC1) : $(OBJ1)
-	$(CC) $(EXEC1) $(CFLAGS) $(SRC1) $(LIB)
+	$(CC) $(EXEC1) $(CFLAGS) $(SRC1) $(LIB) $(MLX) $(MLX_FLAGS)
 
 $(EXEC2) : $(OBJ2)
 	$(CC) $(EXEC2) $(CFLAGS) $(SRC2) $(LIB)

@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 19:02:27 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/15 15:38:34 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/29 19:11:24 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,18 @@ int		makemoves(t_pile **pile, t_pile **temp, char *line)
 	return (1);
 }
 
-int		checker(t_pile **pile)
+int		checker(t_pile **pile, t_mini **pts, int visual)
 {
 	t_pile	*temp;
-	t_pile	*tmp;
-	t_pile	*ptr;
 	char	*line;
 
 	line = NULL;
 	temp = NULL;
+	if (visual == 1)
+	{
+		(*pts)->mlx_ptr = mlx_init();
+		(*pts)->win_ptr = mlx_new_window((*pts)->mlx_ptr, 1000, 1000, "visu");
+	}
 	while (get_next_line(0, &line) == 1)
 	{
 		if (!makemoves(pile, &temp, line))
@@ -79,32 +82,10 @@ int		checker(t_pile **pile)
 			ft_strdel(&line);
 			return (0);
 		}
+		if (visual == 1)
+			visu(pile, &temp, pts);
 		ft_strdel(&line);
 	}
-	tmp = (*pile);
-	ptr = temp;
-	ft_putendl("--------------");
-	while (tmp || ptr)
-	{
-		if (tmp)
-		{
-			ft_printf("%d", tmp->i);
-			tmp = tmp->next;
-		}
-		else
-			ft_printf(" ");
-		ft_printf("     |     ");
-		if (ptr)
-		{
-			ft_printf("%d\n", ptr->i);
-			ptr = ptr->next;
-		}
-		else
-			ft_printf("\n");
-	}
-	if (temp || !pile_is_sort(pile))
-		write(1, "[KO]\n", 5);
-	else if (!temp && pile_is_sort(pile))
-		write(1, "[OK]\n", 5);
+	check_if_sort_is_ok(pile, &temp);
 	return (1);
 }

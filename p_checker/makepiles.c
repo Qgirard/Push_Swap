@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 17:44:13 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/06 14:05:38 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/03/29 15:49:54 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,34 @@ int		createpilea(t_pile **pile, char *str)
 	{
 		new->prev = tmp;
 		tmp->next = new;
+	}
+	return (1);
+}
+
+int		countpile(t_pile **pile)
+{
+	int			i;
+	t_pile		*tmp;
+
+	i = (*pile) ? 1 : 0;
+	tmp = (*pile);
+	while (tmp && tmp->next)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+}
+
+int		put_the_max(t_pile **pile)
+{
+	t_pile	*tmp;
+
+	tmp = (*pile);
+	while (tmp)
+	{
+		tmp->max = (*pile)->max;
+		tmp = tmp->next;
 	}
 	return (1);
 }
