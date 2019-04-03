@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:49:57 by qgirard           #+#    #+#             */
-/*   Updated: 2019/04/03 19:06:31 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/03 19:26:08 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,25 @@ int		initialize_visu(int *i, t_mini *pts)
 {
 	pts->visual = 1;
 	*i = *i + 1;
-	pts->mlx_ptr = mlx_init();
-	pts->win_ptr = mlx_new_window(pts->mlx_ptr, 1000, 1000, "visu");
-	pts->img_ptr1 = mlx_new_image(pts->mlx_ptr, 10, 1000);
-	pts->img_ptr2 = mlx_new_image(pts->mlx_ptr, 495, 1000);
-	pts->img_ptr3 = mlx_new_image(pts->mlx_ptr, 495, 1000);
-	pts->buff1 = mlx_get_data_addr(pts->img_ptr1, &(pts->bpp), &(pts->sl),
-	&(pts->endian));
-	pts->buff2 = mlx_get_data_addr(pts->img_ptr2, &(pts->bpp), &(pts->sl),
-	&(pts->endian));
-	pts->buff3 = mlx_get_data_addr(pts->img_ptr3, &(pts->bpp), &(pts->sl),
-	&(pts->endian));
+	if (!(pts->mlx_ptr = mlx_init()))
+		return (0);
+	if (!(pts->win_ptr = mlx_new_window(pts->mlx_ptr, 1000, 1000, "visu")))
+		return (free_mlx_ptrs(pts, 1));
+	if (!(pts->img_ptr1 = mlx_new_image(pts->mlx_ptr, 10, 1000)))
+		return (free_mlx_ptrs(pts, 2));
+	if (!(pts->img_ptr2 = mlx_new_image(pts->mlx_ptr, 495, 1000)))
+		return (free_mlx_ptrs(pts, 3));
+	if (!(pts->img_ptr3 = mlx_new_image(pts->mlx_ptr, 495, 1000)))
+		return (free_mlx_ptrs(pts, 4));
+	if (!(pts->buff1 = mlx_get_data_addr(pts->img_ptr1, &(pts->bpp), &(pts->sl),
+	&(pts->endian))))
+		return (free_mlx_ptrs(pts, 5));
+	if (!(pts->buff2 = mlx_get_data_addr(pts->img_ptr2, &(pts->bpp), &(pts->sl),
+	&(pts->endian))))
+		return (free_mlx_ptrs(pts, 6));
+	if (!(pts->buff3 = mlx_get_data_addr(pts->img_ptr3, &(pts->bpp), &(pts->sl),
+	&(pts->endian))))
+		return (free_mlx_ptrs(pts, 7));
 	return (1);
 }
 
@@ -74,16 +82,16 @@ int		main(int argc, char **argv)
 		return (0);
 	if (!ft_strcmp("-v", argv[1]))
 		if (!initialize_visu(&i, &pts))
-			return (freeanderror(&pile, 1));
+			return (1);
 	while (argv[i])
 	{
 		if (!(checknumbers(argv[i], &pile)))
-			return (freeanderror(&pile, 1));
+			return (freeanderror(&pile, &pts, 1));
 		i++;
 	}
 	put_the_max(&pile);
 	if (!checker(&pile, &temp, &pts))
-		return (freeanderror(&pile, 1));
-	freeanderror(&pile, 0);
+		return (freeanderror(&pile, &pts, 1));
+	freeanderror(&pile, &pts, 0);
 	return (0);
 }

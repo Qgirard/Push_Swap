@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 13:42:27 by qgirard           #+#    #+#             */
-/*   Updated: 2019/04/03 19:07:00 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/03 19:17:36 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int		key_hook(int key, t_mini *pts)
 	mlx_clear_window(pts->mlx_ptr, pts->win_ptr);
 	if (key == 36)
 		checker(pts->pilea, pts->pileb, pts);
-	return (0);
+	return (1);
 }
 
 int		visu(t_mini *pts)

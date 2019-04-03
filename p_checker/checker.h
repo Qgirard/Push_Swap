@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:50:19 by qgirard           #+#    #+#             */
-/*   Updated: 2019/04/03 18:48:59 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/03 19:23:03 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ typedef struct	s_mini
 	int			visual;
 }				t_mini;
 
-int				freeanderror(t_pile **pile, int i);
+int				freeanderror(t_pile **pile, t_mini *pts, int i);
+int				free_mlx_ptrs(t_mini *pts, int i);
 int				createpilea(t_pile **pile, char *str);
 int				checker(t_pile **pile, t_pile **temp, t_mini *pts);
 int				put_the_max(t_pile **pile);
