@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 19:02:27 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/29 19:11:24 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/03 19:10:29 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,29 +63,31 @@ int		makemoves(t_pile **pile, t_pile **temp, char *line)
 	return (1);
 }
 
-int		checker(t_pile **pile, t_mini **pts, int visual)
+int		checker(t_pile **pile, t_pile **temp, t_mini *pts)
 {
-	t_pile	*temp;
 	char	*line;
 
 	line = NULL;
-	temp = NULL;
-	if (visual == 1)
-	{
-		(*pts)->mlx_ptr = mlx_init();
-		(*pts)->win_ptr = mlx_new_window((*pts)->mlx_ptr, 1000, 1000, "visu");
-	}
+	pts->pilea = pile;
+	pts->pileb = temp;
 	while (get_next_line(0, &line) == 1)
 	{
-		if (!makemoves(pile, &temp, line))
+		if (pts->visual == 1)
+			visu(pts);
+		if (!makemoves(pile, temp, line))
 		{
 			ft_strdel(&line);
 			return (0);
 		}
-		if (visual == 1)
-			visu(pile, &temp, pts);
 		ft_strdel(&line);
+		if (pts->visual == 1)
+		{
+			ft_putendl("YIPIKAI");
+			mlx_hook(pts->win_ptr, 2, 1L << 0, key_hook, &pts);
+			ft_putendl("YIHHHAAAA");
+			mlx_loop(pts->mlx_ptr);
+		}
 	}
-	check_if_sort_is_ok(pile, &temp);
+	check_if_sort_is_ok(pile, temp);
 	return (1);
 }

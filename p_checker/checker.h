@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:50:19 by qgirard           #+#    #+#             */
-/*   Updated: 2019/03/29 19:07:38 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/03 18:48:59 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,23 @@ typedef struct	s_mini
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
+	void		*img_ptr1;
+	void		*img_ptr2;
+	void		*img_ptr3;
+	int			bpp;
+	int			endian;
+	int			sl;
+	char		*buff1;
+	char		*buff2;
+	char		*buff3;
+	t_pile		**pilea;
+	t_pile		**pileb;
+	int			visual;
 }				t_mini;
 
-int				freeanderror(t_pile **pile, t_mini **pts, int i);
+int				freeanderror(t_pile **pile, int i);
 int				createpilea(t_pile **pile, char *str);
-int				checker(t_pile **pile, t_mini **pts, int visual);
+int				checker(t_pile **pile, t_pile **temp, t_mini *pts);
 int				put_the_max(t_pile **pile);
 int				freepileb(t_pile **temp);
 void			pushinpilea(t_pile **pile, t_pile **temp);
@@ -46,6 +58,7 @@ void			reverserotateb(t_pile **temp);
 int				check_if_sort_is_ok(t_pile **pile, t_pile **temp);
 int				pile_is_sort(t_pile **pile);
 int				countpile(t_pile **pile);
-int				visu(t_pile **pile, t_pile **temp, t_mini **pts);
+int				visu(t_mini *pts);
+int      		key_hook(int key, t_mini *pts);
 
 #endif
