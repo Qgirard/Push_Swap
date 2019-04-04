@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 19:02:27 by qgirard           #+#    #+#             */
-/*   Updated: 2019/04/03 19:10:29 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/04 17:06:00 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,7 @@ int		checker(t_pile **pile, t_pile **temp, t_mini *pts)
 		ft_strdel(&line);
 		if (pts->visual == 1)
 		{
-			ft_putendl("YIPIKAI");
-			mlx_hook(pts->win_ptr, 2, 1L << 0, key_hook, &pts);
-			ft_putendl("YIHHHAAAA");
+			mlx_hook(pts->win_ptr, 2, 1L << 0, key_hook, pts);
 			mlx_loop(pts->mlx_ptr);
 		}
 	}

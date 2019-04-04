@@ -6,7 +6,7 @@
 #    By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/04 16:35:29 by qgirard           #+#    #+#              #
-#    Updated: 2019/03/29 12:58:32 by qgirard          ###   ########.fr        #
+#    Updated: 2019/04/04 17:05:26 by qgirard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC1 = p_checker/checker.c p_checker/checkermain.c p_checker/freecauses.c \
 			p_checker/makepiles.c p_checker/rotate.c p_checker/pile_is_sort.c \
-			p_checker/visu.c
+			p_checker/visu.c p_checker/put_good_length.c
 SRC2 = p_pushswap/makelists.c p_pushswap/moves.c p_pushswap/needfree.c \
 			p_pushswap/push_swap.c p_pushswap/pushmain.c \
 			p_pushswap/mediane.c p_pushswap/checksort.c \
