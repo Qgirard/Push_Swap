@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 13:42:27 by qgirard           #+#    #+#             */
-/*   Updated: 2019/04/04 17:04:45 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/05 13:12:41 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int		put_pile_in_window(t_pile **pile, char *str)
 	{
 		k = 495 * ((1.0 * tmp->i) / ((*pile)->max) * 1.0);
 		j = 0;
-		while (j <= 50 && i <= 495000 && col == 0)
+		while (j <= 20 && i <= 495000 && col == 0)
 			put_good_length(str, &i, &j, k);
-		while (j <= 50 && i <= 495000 && col == 1)
+		while (j <= 20 && i <= 495000 && col == 1)
 			put_good_length_in_blue(str, &i, &j, k);
 		while (i % 495 != 0 && k != 495)
 			i++;

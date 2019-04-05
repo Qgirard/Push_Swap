@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:49:57 by qgirard           #+#    #+#             */
-/*   Updated: 2019/04/04 16:32:57 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/05 13:32:42 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		checknumbers(char *str, t_pile **pile)
 		}
 	}
 	if (ft_strisint(str) && (ft_atol(str) >= -2147483648
-	|| ft_atol(str) <= 2147483647))
+	&& ft_atol(str) <= 2147483647))
 	{
 		if (!createpilea(pile, str))
 			return (0);
@@ -92,6 +92,5 @@ int		main(int argc, char **argv)
 	put_the_max(&pile);
 	if (!checker(&pile, &temp, &pts))
 		return (freeanderror(&pile, &pts, 1));
-	freeanderror(&pile, &pts, 0);
-	return (0);
+	return (freeanderror(&pile, &pts, 0));
 }

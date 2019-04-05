@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 18:42:39 by qgirard           #+#    #+#             */
-/*   Updated: 2019/04/03 19:25:48 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/04 18:20:02 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int		freeanderror(t_pile **pile, t_mini *pts, int i)
 {
 	t_pile *tmp;
 
-	free_mlx_ptrs(pts, 8);
+	if (pts->visual == 1)
+		free_mlx_ptrs(pts, 8);
 	while ((*pile))
 	{
 		tmp = (*pile);

@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 17:04:35 by qgirard           #+#    #+#             */
-/*   Updated: 2019/04/04 17:04:38 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/05 12:36:07 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		put_good_length_in_blue(char *str, int *i, int *j, int k)
 	l = 0;
 	while (l < k)
 	{
-		((unsigned int *)str)[*i] = 128;
+		((unsigned int *)str)[*i] = 443263;
 		*i = *i + 1;
 		l++;
 	}

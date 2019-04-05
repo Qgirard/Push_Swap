@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:50:19 by qgirard           #+#    #+#             */
-/*   Updated: 2019/04/04 17:05:11 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/05 13:13:54 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int				check_if_sort_is_ok(t_pile **pile, t_pile **temp);
 int				pile_is_sort(t_pile **pile);
 int				countpile(t_pile **pile);
 int				visu(t_mini *pts);
-int      		key_hook(int key, t_mini *pts);
+int				key_hook(int key, t_mini *pts);
 int				put_good_length_in_blue(char *str, int *i, int *j, int k);
 int				put_good_length(char *str, int *i, int *j, int k);
 
