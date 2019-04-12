@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 17:11:42 by qgirard           #+#    #+#             */
-/*   Updated: 2019/04/05 14:28:26 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/08 13:47:47 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		make_order_in_pile(t_lcheck **stock, t_moves **actions, int j, int var)
 	{
 		while (j > 0)
 		{
-			if (!((countlist(stock) > 3 ) ? makerra(stock, actions) : 1))
+			if (!((countlist(stock) > 3) ? makerra(stock, actions) : 1))
 				return (0);
 			j--;
 		}

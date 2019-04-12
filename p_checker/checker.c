@@ -6,7 +6,7 @@
 /*   By: qgirard <qgirard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 19:02:27 by qgirard           #+#    #+#             */
-/*   Updated: 2019/04/05 13:50:16 by qgirard          ###   ########.fr       */
+/*   Updated: 2019/04/12 12:33:41 by qgirard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ int		makemoves(t_pile **pile, t_pile **temp, char *line)
 		return (0);
 	if (!(ft_strcmp(line, "sa")) || !(ft_strcmp(line, "ss")))
 	{
-		if ((*pile)->next)
+		if ((*pile) && (*pile)->next)
 			ft_swap(&((*pile)->i), &((*pile)->next->i));
 	}
 	if (!(ft_strcmp(line, "sb")) || !(ft_strcmp(line, "ss")))
 	{
-		if ((*pile)->next)
+		if ((*temp) && (*temp)->next)
 			ft_swap(&((*temp)->i), &((*temp)->next->i));
 	}
 	else
